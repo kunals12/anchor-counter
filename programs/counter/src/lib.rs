@@ -12,6 +12,7 @@ pub mod counter {
     }
 
     pub fn increment(ctx: Context<Increment>) -> Result<()> {
+        msg!("counter is {}", ctx.accounts.counter.count);
         ctx.accounts.counter.count = ctx.accounts.counter.count.checked_add(1).unwrap();
         Ok(())
     }
